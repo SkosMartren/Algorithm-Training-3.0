@@ -63,7 +63,7 @@ int main() {
 	cin >> BeginVertice >> EndVertice;
 
 	// 18	presentation-error
-	if (BeginVertice == EndVertice) { 
+	if (BeginVertice == EndVertice) { // " Если путь имеет длину 0, то его выводить не нужно, достаточно вывести длину."
 		cout << 0; 
 		return 0; 
 	}
@@ -78,10 +78,10 @@ int main() {
 
 	
 	if (Len[EndVertice] == -1) {
-		cout << Len[EndVertice];
+		cout << Len[EndVertice]; // "Если пути нет, нужно вывести -1."
 	}
-	else {
-
+	else { 		//"Необходимо вывести путь (номера всех вершин в правильном порядке)"
+	       		// "Выведите сначала L – длину кратчайшего пути (количество ребер, которые нужно пройти), а потом сам путь. "
 		cout << Len[EndVertice] << '\n';
 		for (int i = EndVertice; i != -1; i = Path[i]) { cout << i + 1 << ' '; }
 		cout << '\n';
