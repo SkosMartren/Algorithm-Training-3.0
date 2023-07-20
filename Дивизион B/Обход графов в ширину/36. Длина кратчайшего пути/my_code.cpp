@@ -66,10 +66,10 @@ int main() {
     cin >> VertexBegin >> VertexEnd; 
     VertexBegin--; VertexEnd--; // номера двух вершин положительны, номеруются от 1 до N, для того чтобы работать с ними в vector необходимо декрементировать их
 
-    vector<int> len(N, UNDEF); //  == length == len[i] --> расстояние от вершины VertexBegin до вершины i + 1
+    vector<int> len(N, UNDEF); //  == length == len[i] --> расстояние от вершины VertexBegin до вершины i + 1 == количество ребр от len[VertexBegin] до len[i] 
     len[VertexBegin] = 0; // расстояние от стартовой вершины до стартовой вершины, очевидно, равно 0
     
     BFS(graph, len);
 
-    cout << len[VertexEnd];
+    cout << len[VertexEnd]; 
 }
