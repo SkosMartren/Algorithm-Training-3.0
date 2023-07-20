@@ -49,7 +49,7 @@ int main() {
     cin >> N;
 
     // перевод графа из вида матрицы смежности в список смежности
-    vector < vector <int>> graph(N); // graph[i] -- список вершин в которые идут ребра из i вершины
+    vector < vector <int>> graph(N); // graph : graph[i] --> список вершин в которые идут ребра из i вершины
 
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
