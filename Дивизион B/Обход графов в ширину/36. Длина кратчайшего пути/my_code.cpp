@@ -35,7 +35,7 @@ void BFS(const vector <vector<int>>& graph, vector<int>& len) {
             if (len[next] == UNDEF) { // == Вершина next ни разу не посещена
               
               len[next] = len[Current] + 1;  
-              if (next == VertexEnd) { return; }
+              if (next == VertexEnd) { return; } // Номер шага, на котором вершина v начинает гореть, в точности равен длине её минимального пути из вершины s.
               BurningVertexes.push(next);
                 
             }
