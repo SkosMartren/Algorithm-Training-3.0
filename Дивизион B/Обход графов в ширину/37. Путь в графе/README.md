@@ -11,9 +11,9 @@ int N;
 const int UNDEF = -1;
 int BeginVertice, EndVertice;
 
-// содержит ребра в виде пары {i + 1, Path[i] + 1} -- не все ребра графа там лежат!
-vector<int> Path; // Path : i + 1 --> Path[i] + 1 == есть ребро между вершинами Path[i] + 1 и i + 1 сдвиг на "+ 1" обсусловлен изначальным сдвигом исходных вершин
-				  // примечательно то, что всегда Path[BeginVertice] = -1 -- обусловлено тем, что SetFireVertice не может быть равным BeginVertice ввиду "Len[BeginVertice] = 0;" и "if (Len[SetFireVertice] == UNDEF) {"
+// содержит ребра в виде пары {i + 1, PathScorched[i] + 1} -- не все ребра графа там лежат!
+vector<int> PathScorched; // PathScorched : i + 1 --> PathScorched[i] + 1 == есть ребро между вершинами PathScorched[i] + 1 и i + 1 сдвиг на "+ 1" обсусловлен изначальным сдвигом исходных вершин
+				  // примечательно то, что всегда PathScorched[BeginVertice] = -1 -- обусловлено тем, что SetFireVertice не может быть равным BeginVertice ввиду "Len[BeginVertice] = 0;" и "if (Len[SetFireVertice] == UNDEF) {"
 
 void BFS(const vector<vector<int>>& Graph, vector<int>& Len) {
 
@@ -30,8 +30,8 @@ void BFS(const vector<vector<int>>& Graph, vector<int>& Len) {
 			if (Len[SetFireVertice] == UNDEF) {
 				
 				Len[SetFireVertice] = Len[Flaming] + 1;
-				Path[SetFireVertice] = Flaming;
-				//Path[Flaming] = SetFireVertice; // error!
+				PathScorched[SetFireVertice] = Flaming;
+				//PathScorched[Flaming] = SetFireVertice; // error!
 				if (SetFireVertice == EndVertice) { return; }
 				
 				BurningVertices.push(SetFireVertice);
@@ -45,7 +45,7 @@ void BFS(const vector<vector<int>>& Graph, vector<int>& Len) {
 int main() {
 
 	cin >> N;
-	Path.resize(N, UNDEF);
+	PathScorched.resize(N, UNDEF);
 	vector<vector<int>> Graph(N); // Graph[i] -- список вершин в которые идут ребра из i вершины
 	for (int i = 0; i < N; ++i) {
 		for (int j = 0; j < N; ++j) {
@@ -83,10 +83,10 @@ int main() {
 	else { 		//"Необходимо вывести путь (номера всех вершин в правильном порядке)"
 	       		// "Выведите сначала L – длину кратчайшего пути (количество ребер, которые нужно пройти), а потом сам путь. "
 		cout << Len[EndVertice] << '\n';
-		for (int i = EndVertice; i != -1; i = Path[i]) { cout << i + 1 << ' '; }
+		for (int i = EndVertice; i != -1; i = PathScorched[i]) { cout << i + 1 << ' '; }
 		cout << '\n';
 		
-		for (int i = 0; i < N; ++i) {cout << i + 1 << " set on fire by " << Path[i] + 1 << '\n';}
+		for (int i = 0; i < N; ++i) {cout << i + 1 << " set on fire by " << PathScorched[i] + 1 << '\n';}
 	}
 }
 /*
