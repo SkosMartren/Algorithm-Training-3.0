@@ -41,9 +41,10 @@ int main() {
         for (int i = 1; i < N + 1; ++i) {
             for (int j = 1; j < N + 1; ++j) {
 
-                if(AdjacencyMatrix[i][k]  < N && AdjacencyMatrix[k][j] < N)
-                AdjacencyMatrix[i][j] = min(AdjacencyMatrix[i][j], AdjacencyMatrix[i][k] + AdjacencyMatrix[k][j]);
-
+                if(AdjacencyMatrix[i][k]  < N && AdjacencyMatrix[k][j] < N){
+                    AdjacencyMatrix[i][j] = min(AdjacencyMatrix[i][j], AdjacencyMatrix[i][k] + AdjacencyMatrix[k][j]);
+                }
+                
             }
         }
     }
