@@ -122,7 +122,7 @@ int main() {
 
 __________
 
-<img src="https://github.com/SkosMartren/useful-materials/blob/main/37_path_in_graph_example.png" width="800" height="500"/>
+<img src="https://github.com/SkosMartren/useful-materials/blob/main/37_path_in_graph_example.png" width="1300" height="500"/>
 
  <p align="center">  Содержимое двумерного массива Next для "Пример" из условия  </p> 
 
