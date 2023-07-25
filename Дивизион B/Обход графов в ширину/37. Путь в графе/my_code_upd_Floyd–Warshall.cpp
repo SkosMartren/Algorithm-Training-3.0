@@ -49,7 +49,7 @@ int main() {
                     AdjacencyMatrix[i][k] + AdjacencyMatrix[k][j] < AdjacencyMatrix[i][j]) {
 
                     AdjacencyMatrix[i][j] = AdjacencyMatrix[i][k] + AdjacencyMatrix[k][j];
-                    Next[i][j] = Next[i][k]; // так как путь через вершины {1, ..., k} короче, нежели через вершины {1, ..., k - 1}, то путь должен пролегать через вершину k: i -> k -> j
+                    Next[i][j] = Next[i][k]; // так как путь через вершины {1, ..., k} короче, нежели через вершины {1, ..., k - 1}, то путь должен пролегать через вершину k: i -> ... -> k -> ... -> j
 
                 }
 
