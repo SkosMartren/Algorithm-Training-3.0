@@ -11,7 +11,7 @@ int main() {
 
     int N; cin >> N; // число N – количество вершин в графе (1 ≤ N ≤ 100)
 
-    vector<vector<int>> AdjacencyMatrix(N + 1, vector<int>(N + 1));
+    vector<vector<int>> AdjacencyMatrix(N + 1, vector<int>(N + 1, 0));
 
     for (int i = 1; i < N + 1; i++) {
         for (int j = 1; j < N + 1; j++) {
