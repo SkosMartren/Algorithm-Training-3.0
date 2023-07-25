@@ -21,7 +21,7 @@ int main() {
             cin >> AdjacencyMatrix[i][j];
 
             if (AdjacencyMatrix[i][j]) { Next[i][j] = j; }
-            if (i == j) { Next[i][i] = i; }
+            if (i == j) { Next[i][i] = i; } // данный код имеет место быть так как на главной диагонали AdjacencyMatrix стоят нули == у каждой вершины есть петли с нулевым весом
 
             if ((AdjacencyMatrix[i][j] == 0 && i != j)) { AdjacencyMatrix[i][j] = numeric_limits<int>::max(); }
 
